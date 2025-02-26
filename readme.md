@@ -13,6 +13,28 @@ With this script, you can **extract transactions from screenshots** and convert 
 To ensure accurate OCR extraction, **screenshots must be cropped properly**.  
 Here’s an example of a correctly cropped Apple Card transaction screenshot:
 
+## 📌 Usage
+- Upload an Apple Card transaction screenshot (crop it as shown in the example).
+- Click “Convert to CSV” to process the image.
+- Edit the extracted transactions in the web UI (if needed).
+- Click “Save Changes” and download the CSV file.
+
+## 📝 How It Works
+- Uses Tesseract OCR to extract text from uploaded images.
+- Parses transaction data, including merchant, date, and amount.
+- Displays transactions in an editable table before saving.
+- Allows exporting transactions as a CSV file.
+
+## ⚙️ Technologies Used
+- Python (Flask, Pandas, OpenCV, Tesseract)
+- JavaScript (for table editing & interaction)
+- HTML/CSS (for UI)
+
+## 🏗️ Future Improvements
+- Add automatic cropping detection.
+- Improve OCR accuracy with machine learning.
+- Support multiple transaction formats.
+
 ![Example Screenshot](static/example_screenshot.png)
 
 > **Note:** Screenshots should include only the **transaction list**, without extra UI elements.
@@ -28,29 +50,8 @@ pip install -r requirements.txt
 python app.py
 
 The app will run on http://127.0.0.1:5000/.
+```
 
-📌 Usage
-	1.	Upload an Apple Card transaction screenshot (crop it as shown in the example).
-	2.	Click “Convert to CSV” to process the image.
-	3.	Edit the extracted transactions in the web UI (if needed).
-	4.	Click “Save Changes” and download the CSV file.
 
-📝 How It Works
-	1.	Uses Tesseract OCR to extract text from uploaded images.
-	2.	Parses transaction data, including merchant, date, and amount.
-	3.	Displays transactions in an editable table before saving.
-	4.	Allows exporting transactions as a CSV file.
-
-⚙️ Technologies Used
-	•	Python (Flask, Pandas, OpenCV, Tesseract)
-	•	JavaScript (for table editing & interaction)
-	•	HTML/CSS (for UI)
-
-🏗️ Future Improvements
-	•	Add automatic cropping detection.
-	•	Improve OCR accuracy with machine learning.
-	•	Support multiple transaction formats.
-
-📄 License
-
+## 📄 License
 This project is licensed under the MIT License.
