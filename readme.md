@@ -2,6 +2,7 @@
 
 This project was created because **Apple Card does not provide a free way to export transactions daily**.  
 With this script, you can **extract transactions from screenshots** and convert them into a structured CSV file.
+
 ![UI1 Screenshot](static/UI1.png) ![UI2 Screenshot](static/UI2.png)
 
 ## 🚀 Features
