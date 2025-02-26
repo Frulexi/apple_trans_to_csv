@@ -1,0 +1,5 @@
+Flask
+pandas
+pytesseract
+opencv-python
+werkzeug
