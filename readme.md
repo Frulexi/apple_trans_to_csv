@@ -9,10 +9,6 @@ With this script, you can **extract transactions from screenshots** and convert 
 - Allows users to **edit transaction data before saving**.
 - Provides a simple **Flask web app** for ease of use.
 
-## 📸 Screenshot Example
-To ensure accurate OCR extraction, **screenshots must be cropped properly**.  
-Here’s an example of a correctly cropped Apple Card transaction screenshot:
-
 ## 📌 Usage
 - Upload an Apple Card transaction screenshot (crop it as shown in the example).
 - Click “Convert to CSV” to process the image.
@@ -34,6 +30,10 @@ Here’s an example of a correctly cropped Apple Card transaction screenshot:
 - Add automatic cropping detection.
 - Improve OCR accuracy with machine learning.
 - Support multiple transaction formats.
+  
+## 📸 Screenshot Example
+To ensure accurate OCR extraction, **screenshots must be cropped properly**.  
+Here’s an example of a correctly cropped Apple Card transaction screenshot:
 
 ![Example Screenshot](static/example_screenshot.png)
 
