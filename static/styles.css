@@ -161,3 +161,28 @@ td[contenteditable="true"] {
 .save-btn:hover {
     background: #218838;
 }
+/* Flashes */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.flashes li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    color: white;
+}
+
+.flashes li.error {
+    background-color: #f44336; /* Red */
+}
+
+.flashes li.warning {
+    background-color: #ff9800; /* Orange */
+}
+
+.flashes li.message {
+    background-color: #4CAF50; /* Green */
+}
