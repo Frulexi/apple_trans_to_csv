@@ -1,35 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction Table</title>
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Extracted Transactions</h1>
-        
-        <!-- Display extracted transactions in an editable table -->
-        {% if tables %}
-            <table class="data-table" id="editableTable">
-                {{ tables[0]|safe }}
-            </table>
-        {% else %}
-            <p>No transactions found.</p>
-        {% endif %}
+{% extends 'base.html' %}
 
-        <!-- Display Download CSV button if data is available -->
-        {% if download_ready %}
-            <a id="downloadLink" class="download-btn" href="/download">Download CSV</a>
-        {% endif %}
-        
-        <!-- Buttons for saving changes and returning to the upload page -->
-        <button id="saveChanges" class="save-btn">Save Changes</button>
-        <button id="backToUpload" class="back-btn" onclick="window.location.href='/'">Back to Upload</button>
-    </div>
+{% block content %}
+<div class="container">
+    <h1>Extracted Transactions</h1>
 
-    <!-- JavaScript for handling table edits -->
-    <script src="/static/js/table_edit.js"></script>
-</body>
-</html>
+    <!-- Display extracted transactions in an editable table -->
+    {% if tables %}
+    <table class="data-table" id="editableTable">
+        {{ tables[0]|safe }}
+    </table>
+    {% else %}
+    <p>No transactions found.</p>
+    {% endif %}
+
+    <!-- Display Download CSV button if data is available -->
+    {% if download_ready %}
+    <a id="downloadLink" class="download-btn" href="/download">Download CSV</a>
+    {% endif %}
+
+    <!-- Buttons for saving changes and returning to the upload page -->
+    <button id="saveChanges" class="save-btn">Save Changes</button>
+    <button id="backToUpload" class="back-btn" onclick="window.location.href='/'">Back to Upload</button>
+</div>
+
+<!-- JavaScript for handling table edits -->
+<script src="{{ url_for('static', filename='js/table_edit.js') }}"></script>
+{% endblock %}
