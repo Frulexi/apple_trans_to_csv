@@ -1,41 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Transaction to CSV</title>
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Apple Transaction to CSV</h1>
-        <p>Upload your Apple Card transaction screenshot(s), and we'll generate a CSV file.</p>
+{% extends 'base.html' %}
 
-        <!-- File Upload Form -->
-        <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
-            <div class="upload-box" id="uploadBox">
-                <!-- Hidden file input field -->
-                <input type="file" id="fileInput" name="file" multiple accept="image/*">
-                <label for="fileInput" class="upload-label">Click to Upload Images</label>
-                <p id="fileName" class="file-name"></p> <!-- Displays selected file names -->
-            </div>
+{% block content %}
+<div class="container">
+    <h1>Apple Transaction to CSV</h1>
+    <p>Upload your Apple Card transaction screenshot(s), and we'll generate a CSV file.</p>
 
-            <div id="preview"></div> <!-- Image preview section -->
+    <!-- File Upload Form -->
+    <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
+        <div class="upload-box" id="uploadBox">
+            <!-- Hidden file input field -->
+            <input type="file" id="fileInput" name="file" multiple accept="image/*">
+            <label for="fileInput" class="upload-label">Click to Upload Images</label>
+            <p id="fileName" class="file-name"></p> <!-- Displays selected file names -->
+        </div>
 
-            <button type="submit" id="convertBtn">Convert to CSV</button>
-        </form>
+        <div id="preview"></div> <!-- Image preview section -->
 
-        <!-- Download link (hidden by default, shown after processing) -->
-        <a id="downloadLink" class="download-btn" style="display: none;" href="/download">Download CSV</a>
-    </div>
+        <button type="submit" id="convertBtn">Convert to CSV</button>
+    </form>
 
-    <!-- JavaScript for handling file selection and previews -->
-    <script src="/static/js/script.js"></script>
+    <!-- Download link (hidden by default, shown after processing) -->
+    <a id="downloadLink" class="download-btn" style="display: none;" href="/download">Download CSV</a>
+</div>
 
-</body>
-</html>
-
-
-
-
-
+<!-- JavaScript for handling file selection and previews -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
