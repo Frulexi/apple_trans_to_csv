@@ -6,6 +6,9 @@ RUN apt-get update && \
     apt-get install -y libgl1 tesseract-ocr libtesseract-dev libleptonica-dev tesseract-ocr-eng && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+    
+#Set the timezone 
+ENV TZ=America/New_York
 
 #Set working dir    
 WORKDIR /app
