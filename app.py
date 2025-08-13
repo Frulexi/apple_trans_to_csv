@@ -348,15 +348,25 @@ def process_text_to_csv(extracted_text):
 
         # Extract transaction amount
         try:
-            amount = re.search(r"\$([0-9,.]+)", amount_str)
-            data["Amount"].append(amount.group(1) if amount else "")
-        except Exception as e:
-            logging.warning(f"Could not extract amount: {amount_str}. Error: {e}")
-            flash(f"Could not extract amount: {amount_str}. Amount set to empty string.", 'warning')
+            match = re.search(r"(\+?)\$([0-9,.]+)", amount_str)
+            if match:
+                # Extract numeric amount
+                numeric_value = match.group(2)
+
+                if match.group(1) == "+":  
+                    # If starts with '+', keep as positive
+                    data["Amount"].append(numeric_value)
+                else:  
+                    # If no '+', make it negative
+                    data["Amount"].append(f"-{numeric_value}")
+            else:
+                data["Amount"].append("")
+        except Exception:
+            print(f"Could not extract amount: {amount_str}. Amount set to empty string.", 'warning')
             data["Amount"].append("")
-        
+            
         data["Note"].append(merchant)
-        data["Date"].append(date)
+        data["Date"].append(date)  
         
 
     # Convert data to DataFrame and save as CSV
