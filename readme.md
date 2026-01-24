@@ -41,18 +41,25 @@ Here’s an example of a correctly cropped Apple Card transaction screenshot:
 
 > **Note:** Screenshots should include only the **transaction list**, without extra UI elements.
 
-## 🛠️ Installation
+## 🛠️ Installation (Docker)
+
 ### 1️⃣ Clone the Repository
 ```bash
 git clone YOUR_GITHUB_REPO_URL
 cd apple_trans_to_csv
-
-pip install -r requirements.txt
-
-python app.py
-
-The app will run on http://127.0.0.1:5000/.
 ```
+
+### 2️⃣ Build the Docker Image
+```bash
+docker build -t apple-trans-to-csv .
+```
+
+### 3️⃣ Run the Container
+```bash
+docker run -d -p 8080:8080 apple-trans-to-csv
+```
+
+The app will be available at http://localhost:8080/
 
 
 ## 📄 License
